@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { deposit, withdraw, mobileUpdate, nameUpdate, reset } from "./actions";
 
 function Form() {
   let dispatch = useDispatch();
@@ -26,7 +27,8 @@ function Form() {
           <button
             className="btn btn-primary col-1"
             onClick={() => {
-              dispatch({ type: "deposit", payload: amount });
+              // dispatch({ type: "deposit", payload: amount });
+              dispatch(deposit(amount))
               setAmount("");
             }}
           >
@@ -35,7 +37,8 @@ function Form() {
           <button
             className="btn btn-danger mx-2 col-1"
             onClick={() => {
-              dispatch({ type: "withdraw", payload: amount });
+              // dispatch({ type: "withdraw", payload: amount });
+              dispatch(withdraw(amount))
               setAmount("");
             }}
           >
@@ -58,7 +61,8 @@ function Form() {
           <button
             className="btn btn-primary col-1 mx-2"
             onClick={() => {
-              dispatch({ type: "nameUpdate", payload: fullName });
+              // dispatch({ type: "nameUpdate", payload: fullName });
+              dispatch(nameUpdate(fullName))
               setFullName("");
             }}
           >
@@ -81,7 +85,8 @@ function Form() {
           <button
             className="btn btn-primary col-1 mx-2"
             onClick={() => {
-              dispatch({ type: "mobileUpdate", payload: mobile });
+              // dispatch({ type: "mobileUpdate", payload: mobile });
+              dispatch(mobileUpdate(mobile))
               setMobile("");
             }}
           >
@@ -91,7 +96,8 @@ function Form() {
         <button
           className="btn btn-danger col-1 mt-2"
           onClick={() => {
-            dispatch({ type: "reset" });
+            // dispatch({ type: "reset" });
+            dispatch(reset())
             setMobile("");
           }}
         >
